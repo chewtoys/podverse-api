@@ -10,7 +10,7 @@ const shortid = require('shortid')
 export class Category {
 
   @PrimaryColumn('varchar', {
-    default: shortid.generate(),
+    default: shortid.generate,
     length: 14
   })
   id: string
@@ -46,11 +46,6 @@ export class Category {
   @BeforeUpdate()
   addSlug () {
     this.slug = this.title.replace(/\s+/g, '-').toLowerCase()
-  }
-
-  @BeforeInsert()
-  beforeInsert() {
-    this.id = shortid.generate()
   }
 
 }

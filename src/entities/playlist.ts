@@ -9,7 +9,7 @@ const shortid = require('shortid')
 export class Playlist {
 
   @PrimaryColumn('varchar', {
-    default: shortid.generate(),
+    default: shortid.generate,
     length: 14
   })
   id: string
@@ -41,12 +41,6 @@ export class Playlist {
 
   @Column({ nullable: true })
   title: string
-
-  @BeforeInsert()
-  beforeInsert () {
-    this.id = shortid.generate()
-    this.itemsOrder = this.itemsOrder || []
-  }
 
   @BeforeInsert()
   trimStrings () {

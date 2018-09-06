@@ -12,7 +12,7 @@ const shortid = require('shortid')
 export class Episode {
 
   @PrimaryColumn('varchar', {
-    default: shortid.generate(),
+    default: shortid.generate,
     length: 14
   })
   id: string
@@ -107,10 +107,5 @@ export class Episode {
 
   @Column({ nullable: true })
   title: string
-
-  @BeforeInsert()
-  beforeInsert() {
-    this.id = shortid.generate()
-  }
 
 }

@@ -9,7 +9,7 @@ const shortid = require('shortid')
 export class User {
 
   @PrimaryColumn('varchar', {
-    default: shortid.generate(),
+    default: shortid.generate,
     length: 14
   })
   id: string
@@ -35,7 +35,6 @@ export class User {
 
   @BeforeInsert()
   beforeInsert () {
-    this.id = shortid.generate()
     this.subscribedPodcastIds = this.subscribedPodcastIds || []
   }
 

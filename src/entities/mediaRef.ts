@@ -16,7 +16,7 @@ const shortid = require('shortid')
 @Entity('mediaRefs')
 export class MediaRef {
   @PrimaryColumn('varchar', {
-    default: shortid.generate(),
+    default: shortid.generate,
     length: 14
   })
   id: string
@@ -170,11 +170,6 @@ export class MediaRef {
 
   @Column({ nullable: true })
   title: string
-
-  @BeforeInsert()
-  beforeInsert() {
-    this.id = shortid.generate()
-  }
 
   @BeforeInsert()
   trimStrings () {
