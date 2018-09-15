@@ -24,6 +24,6 @@ export const databaseInitializer = async () => {
 
   let connection = await createConnection(options)
 
-  // await seedDatabase(connection)
+  await seedDatabase(connection)
 
 }

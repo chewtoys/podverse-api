@@ -1,8 +1,8 @@
-import { IsEmail } from 'class-validator'
+import { IsEmail, Min, Max, Validate, validate, IsLowercase } from 'class-validator'
 import { BeforeInsert, Column, CreateDateColumn, Entity, OneToMany,
-  PrimaryColumn, UpdateDateColumn } from 'typeorm'
+  PrimaryColumn, UpdateDateColumn, BeforeUpdate } from 'typeorm'
 import { Playlist } from 'entities'
-
+import { IsValidPassword } from 'utility/validation'
 const shortid = require('shortid')
 
 @Entity('users')
@@ -20,10 +20,16 @@ export class User {
   @UpdateDateColumn()
   updatedAt: Date
 
+  @Validate(IsValidPassword)
+  @Column()
+  password: string
+
   @OneToMany(type => Playlist, playlist => playlist.owner)
   playlists: Playlist[]
 
-  @IsEmail()
+  @IsEmail({}, {
+    message: 'An email address is required.'
+  })
   @Column({ unique: true })
   email: string
 

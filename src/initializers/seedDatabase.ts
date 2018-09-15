@@ -1,4 +1,4 @@
-import { validCategories } from 'config'
+import { validCategories } from 'config/categories'
 import { Author, Category, Episode, FeedUrl, MediaRef, Playlist,
   Podcast, User } from 'entities'
 import { parseFeed } from 'services/parser'
@@ -106,30 +106,30 @@ export default async connection => {
   mediaRef4.categories = [category4]
   await connection.manager.save(mediaRef4)
 
-  let user1 = new User()
-  user1.email = 'foghorn@looney.tunes'
-  user1.name = 'Foghorn Leghorn'
-  await connection.manager.save(user1)
+  // let user1 = new User()
+  // user1.email = 'foghorn@looney.tunes'
+  // user1.name = 'Foghorn Leghorn'
+  // await connection.manager.save(user1)
 
-  let user2 = new User()
-  user2.email = 'sylvester@looney.tunes'
-  user2.name = 'Sylvester the Cat'
-  await connection.manager.save(user2)
+  // let user2 = new User()
+  // user2.email = 'sylvester@looney.tunes'
+  // user2.name = 'Sylvester the Cat'
+  // await connection.manager.save(user2)
 
-  let user3 = new User()
-  user3.email = 'tweety@looney.tunes'
-  user3.name = 'Tweety'
-  await connection.manager.save(user3)
+  // let user3 = new User()
+  // user3.email = 'tweety@looney.tunes'
+  // user3.name = 'Tweety'
+  // await connection.manager.save(user3)
 
-  let user4 = new User()
-  user4.email = 'wile@looney.tunes'
-  user4.name = 'Wile E. Coyote'
-  await connection.manager.save(user4)
+  // let user4 = new User()
+  // user4.email = 'wile@looney.tunes'
+  // user4.name = 'Wile E. Coyote'
+  // await connection.manager.save(user4)
 
-  let playlist1 = new Playlist()
-  playlist1.owner = user1
-  playlist1.title = 'Greatest Hits'
-  await connection.manager.save(playlist1)
+  // let playlist1 = new Playlist()
+  // playlist1.owner = user1
+  // playlist1.title = 'Greatest Hits'
+  // await connection.manager.save(playlist1)
 
   await generateCategories(connection, validCategories, null, true)
 

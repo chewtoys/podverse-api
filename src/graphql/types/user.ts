@@ -3,6 +3,7 @@ export default `
   input CreateUserPatch {
     email: String
     name: String
+    password: String
     subscribedPodcastIds: [String]
   }
 
@@ -38,6 +39,7 @@ export default `
     updatedAt: String
     email: String
     name: String
+    password: String
     subscribedPodcastIds: [String]
   }
 `
